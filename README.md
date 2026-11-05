@@ -17,7 +17,7 @@ Andrej Karpathy, Let's reproduce GPT-2(124M) (https://www.youtube.com/watch?v=l8
 | 파일 | 역할 |
 |---|---|
 | `train_gpt2.py` | GPT-2 모델, 데이터 로더, 학습률 스케줄 구현 |
-| `run_gpt2.py` | 학습·검증 실행, 체크포인트 저장, 텍스트 생성 |
+| `run_gpt2.py` | 학습·검증 실행, 체크포인트 저장, 텍스트 생성 (환경에 맞게 코드 변경 위해 Codex 일부 사용) |
 | `fineweb.py` | FineWeb-Edu 다운로드 및 토큰화 |
 | `hellaswag.py` | HellaSwag 평가용 데이터 로딩 및 점수 계산 |
 | `GPT2_Train_Colab.ipynb` | Colab에서 데이터 준비 및 학습 실행 (Codex 생성) |
