@@ -17,7 +17,7 @@ Andrej Karpathy, Let's reproduce GPT-2(124M) (https://www.youtube.com/watch?v=l8
 | 파일 | 역할 |
 |---|---|
 | `train_gpt2.py` | GPT-2 모델, 데이터 로더, 학습률 스케줄 구현 |
-| `run_gpt2.py` | 학습·검증 실행, 체크포인트 저장, 텍스트 생성 (환경에 맞게 Codex로 일부 수정) |
+| `run_gpt2.py` | 학습·검증 실행, 체크포인트 저장, 텍스트 생성 |
 | `fineweb.py` | FineWeb-Edu 다운로드 및 토큰화 |
 | `hellaswag.py` | HellaSwag 평가용 데이터 로딩 및 점수 계산 |
 | `GPT2_Train_Colab.ipynb` | Colab에서 데이터 준비 및 학습 실행 (Codex 생성) |
@@ -33,7 +33,7 @@ Andrej Karpathy, Let's reproduce GPT-2(124M) (https://www.youtube.com/watch?v=l8
 |---|---|
 | 모델 | GPT-2 124M |
 | 학습 데이터 | FineWeb-Edu `sample-10BT` 일부 |
-| 실행 환경 | Google Colab, Tesla T4 1장 |
+| 실행 환경 | Google Colab, Tesla T4 |
 | 문맥 길이 | 1,024토큰 |
 | 업데이트당 학습량 | 2 * 1024 * 4 = 8,192토큰 |
 | 학습량 | 6,000steps, 총 49,152,000토큰 |
@@ -45,6 +45,20 @@ validation loss는 100스텝의 **7.1026**에서 6,000스텝의 **5.2366**으로
 
 추가 학습을 통해 검증 loss가 더 감소하는지 확인할 필요가 있음.
 
+
 ## train 및 validation Loss
 
 ![GPT-2 124M의 0~6,000스텝 학습 및 검증 loss 그래프](assets/loss_0_to_6000.png)
+
+
+## 텍스트 생성 예시
+
+6,000스텝 학습된 모델로 
+- mode = 'generate'
+- prompt = `Hello, I'm a language model,`
+- max_new_tokens = 40
+- top_k = 50으로 설정 후 generate 한 결과 
+
+```text
+Hello, I'm a language model, and are all of their own work and to consider their experiences of their work. When a person or a child has access to the child or other child, the teacher is not the game.
+```
