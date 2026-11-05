@@ -1,4 +1,4 @@
-# gpt-2-scratch
+# gpt-2-from-scratch
 
 ## 목표
 
@@ -26,6 +26,7 @@ Andrej Karpathy, Let's reproduce GPT-2(124M) (https://www.youtube.com/watch?v=l8
 ## 실험 설정 및 결과
 
 로컬 컴퓨팅 자원의 제약으로 학습은 Google Colab의 GPU로 진행함.
+
 제한된 학습 시간과 연산 자원을 고려해 FineWebEdu Sample-10BT의 일부만 사용함.
 
 | 항목 | 설정 |
@@ -37,4 +38,13 @@ Andrej Karpathy, Let's reproduce GPT-2(124M) (https://www.youtube.com/watch?v=l8
 | 업데이트당 학습량 | 2 * 1024 * 4 = 8,192토큰 |
 | 학습량 | 6,000steps, 총 49,152,000토큰 |
 
-검증 loss는 첫 스텝의 **10.9752**에서 6,000 스텝의 **5.2366**으로 감소함.
+
+validation loss는 100스텝의 **7.1026**에서 6,000스텝의 **5.2366**으로 감소함.
+
+학습량이 제한되어 검증 loss가 하락하는 도중에 학습을 종료함. 
+
+추가 학습을 통해 검증 loss가 더 감소하는지 확인할 필요가 있음.
+
+## train 및 validation Loss
+
+![GPT-2 124M의 0~6,000스텝 학습 및 검증 loss 그래프](assets/loss_0_to_6000.png)
