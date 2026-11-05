@@ -1,0 +1,9 @@
+torch
+numpy
+tiktoken
+transformers
+datasets
+tqdm
+ipykernel
+requests
+matplotlib
